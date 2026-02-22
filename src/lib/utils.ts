@@ -12,11 +12,11 @@ export function formatCurrency(amountInPaise: number): string {
   }).format(amountInPaise / 100);
 }
 
-export function formatCurrencyRupees(amount: number): string {
+export function formatCurrencyRupees(amountInPaise: number): string {
   return new Intl.NumberFormat('en-IN', {
     style: 'currency',
     currency: 'INR',
-  }).format(amount);
+  }).format(amountInPaise / 100);
 }
 
 export function formatDate(dateString: string): string {
