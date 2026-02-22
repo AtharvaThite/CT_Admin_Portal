@@ -39,7 +39,7 @@ export default async function UserDetailPage({ params }: { params: Promise<{ use
           </h1>
           <p className="text-muted-foreground text-sm mt-1">{user.email}</p>
         </div>
-        <UserActions userId={userId} isActive={user.onboardingCompleted} />
+        <UserActions userId={userId} isActive={!user.isDisabled} />
       </div>
 
       <Tabs defaultValue="profile" className="space-y-4">

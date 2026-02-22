@@ -46,12 +46,12 @@ const columns: ColumnDef<Booking>[] = [
     cell: ({ row }) => <StatusBadge status={row.original.status} />,
   },
   {
-    accessorKey: "paymentId",
+    accessorKey: "razorpayPaymentId",
     header: "Payment ID",
     cell: ({ row }) =>
-      row.original.paymentId ? (
+      row.original.razorpayPaymentId ? (
         <code className="text-xs bg-muted px-1.5 py-0.5 rounded">
-          {row.original.paymentId}
+          {row.original.razorpayPaymentId}
         </code>
       ) : (
         "—"

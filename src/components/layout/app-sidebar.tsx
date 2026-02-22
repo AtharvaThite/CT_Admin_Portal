@@ -24,6 +24,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { logoutAction } from "@/lib/actions/auth";
 import { cn } from "@/lib/utils";
@@ -68,6 +69,7 @@ const navItems = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const { setOpenMobile } = useSidebar();
 
   return (
     <Sidebar>
@@ -100,7 +102,7 @@ export function AppSidebar() {
                           "bg-primary/10 text-primary font-medium"
                       )}
                     >
-                      <Link href={item.href}>
+                      <Link href={item.href} onClick={() => setOpenMobile(false)}>
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
                       </Link>

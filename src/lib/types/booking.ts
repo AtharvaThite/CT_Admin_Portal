@@ -13,6 +13,7 @@ export interface Booking {
   taxRate: number;
   notes: string;
   status: BookingStatus;
-  paymentId: string | null;
-  orderId: string | null;
+  razorpayPaymentId: string | null;
+  razorpayOrderId: string | null;
+  razorpaySignature: string | null;
 }

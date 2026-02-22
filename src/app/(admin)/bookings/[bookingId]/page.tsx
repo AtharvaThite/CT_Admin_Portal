@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, IndianRupee, CreditCard, User, Stethoscope } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Clock, IndianRupee, CreditCard, User, Stethoscope } from "lucide-react";
+import { BackButton } from "@/components/shared/back-button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatusBadge } from "@/components/shared/status-badge";
 import { getBookingById } from "@/lib/queries/bookings";
@@ -22,12 +22,7 @@ export default async function BookingDetailPage({ params }: { params: Promise<{ 
   return (
     <div>
       <div className="mb-4">
-        <Button variant="ghost" size="sm" asChild>
-          <Link href="/bookings">
-            <ArrowLeft className="h-4 w-4 mr-1" />
-            Back to Bookings
-          </Link>
-        </Button>
+        <BackButton fallbackHref="/bookings" label="Back to Bookings" />
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
@@ -143,14 +138,14 @@ export default async function BookingDetailPage({ params }: { params: Promise<{ 
           <CardContent className="space-y-2">
             <p className="text-sm">
               <span className="text-muted-foreground">Payment ID:</span>{" "}
-              {booking.paymentId ? (
-                <code className="bg-muted px-1.5 py-0.5 rounded text-xs">{booking.paymentId}</code>
+              {booking.razorpayPaymentId ? (
+                <code className="bg-muted px-1.5 py-0.5 rounded text-xs">{booking.razorpayPaymentId}</code>
               ) : "—"}
             </p>
             <p className="text-sm">
               <span className="text-muted-foreground">Order ID:</span>{" "}
-              {booking.orderId ? (
-                <code className="bg-muted px-1.5 py-0.5 rounded text-xs">{booking.orderId}</code>
+              {booking.razorpayOrderId ? (
+                <code className="bg-muted px-1.5 py-0.5 rounded text-xs">{booking.razorpayOrderId}</code>
               ) : "—"}
             </p>
           </CardContent>
